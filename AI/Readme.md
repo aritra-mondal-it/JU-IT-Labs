@@ -54,7 +54,7 @@ For file-based tasks (e.g., reading `.txt` files):
 
 **Instructions:**
 - To upload the file, please mount the Google Drive in the IPython notebook file.
-📁 Notebook: [`assignment0.ipynb`](AI/091_A2_Assignment_0_Day_1.ipynb)
+📁 Notebook: [`assignment0.ipynb`](091_A2_Assignment_0_Day_1.ipynb)
 
 ---
 
