@@ -68,6 +68,8 @@ For file-based tasks (e.g., reading `.txt` files):
 
 ---
 
-**Help**
+**🤝 Help and Ownership**
 - For more help, you can refer to Dr. Kartick Chandra Mondal Sir's YouTube channel: [Dr. Kartick Chandra Mondal Sir's YouTube Channel](http://youtube.com/@kartickchandramondal)
 - GitHub Repository: [damaclab/AI](https://github.com/damaclab/AI)
+---
+*This repository and its contents are the intellectual property of Aritra Mondal, created as part of the Jadavpur University B.E. in Information Technology program.*
