@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+<input type="number" id="num">
+<button onclick="checkEvenOdd()">Check</button>
+<p id="result"></p>
+
+<script>
+function checkEvenOdd() {
+  let n = document.getElementById("num").value;
+  document.getElementById("result").innerText =
+    (n % 2 === 0) ? "Even Number" : "Odd Number";
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+<button onclick="showDateTime()">Show Date & Time</button>
+<p id="dt"></p>
+
+<script>
+function showDateTime() {
+  let d = new Date();
+  let days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  document.getElementById("dt").innerText =
+    d.toDateString() + " | " + d.toLocaleTimeString() + " | " + days[d.getDay()];
+}
+</script>
+</body>
+</html>

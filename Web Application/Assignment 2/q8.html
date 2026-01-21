@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+<input type="text" id="name">
+<button onclick="validate()">Submit</button>
+<p id="warn" style="color:red;"></p>
+
+<script>
+function validate() {
+  let val = document.getElementById("name").value;
+  document.getElementById("warn").innerText =
+    val === "" ? "Field cannot be empty!" : "";
+}
+</script>
+</body>
+</html>

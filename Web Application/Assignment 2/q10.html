@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+<button onclick="togglePara()">Toggle Text</button>
+<p id="text">Hello World</p>
+
+<script>
+let flag = true;
+function togglePara() {
+  let p = document.getElementById("text");
+  if (flag) {
+    p.innerText = "Welcome to JavaScript";
+    p.style.color = "blue";
+  } else {
+    p.innerText = "Hello World";
+    p.style.color = "green";
+  }
+  flag = !flag;
+}
+</script>
+</body>
+</html>

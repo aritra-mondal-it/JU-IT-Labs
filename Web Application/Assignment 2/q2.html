@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+<input type="number" id="num">
+<button onclick="calculate()">Calculate</button>
+<p id="output"></p>
+
+<script>
+function calculate() {
+  let n = document.getElementById("num").value;
+  document.getElementById("output").innerText =
+    "Square: " + (n*n) + ", Cube: " + (n*n*n);
+}
+</script>
+</body>
+</html>
