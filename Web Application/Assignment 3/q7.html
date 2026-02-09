@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body { margin: 0; font-family: Arial; }
+
+header, footer {
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+nav {
+    background: #333;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    margin: 10px;
+    text-decoration: none;
+}
+
+section {
+    padding: 20px;
+    box-shadow: 0 0 10px gray;
+    border-radius: 10px;
+    transition: transform 0.5s;
+}
+
+section:hover {
+    transform: scale(1.02);
+}
+
+button {
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px black;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>College Tech Fest</h1>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Events</a>
+    <a href="#">Contact</a>
+</nav>
+
+<section>
+    <h2>About the Event</h2>
+    <p>Join us for workshops, competitions, and fun activities.</p>
+    <button onclick="alert('Registered!')">Register</button>
+</section>
+
+<footer>
+    © 2025 College Fest
+</footer>
+
+</body>
+</html>
