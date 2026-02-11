@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Application</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f4f4;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .quiz-container {
+            background: white;
+            width: 400px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        #question {
+            margin-bottom: 15px;
+        }
+
+        .option-btn {
+            display: block;
+            margin: 8px auto;
+            padding: 10px;
+            width: 80%;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            background-color: white;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .option-btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        .option-btn.active {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+
+        #nextBtn {
+            margin-top: 15px;
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+
+    <h2 id="question"></h2>
+
+    <div id="options"></div>
+
+    <button id="nextBtn" onclick="nextQuestion()">Next</button>
+
+</div>
+
+<script>
+
+    // Array of Question Objects
+    const quizData = [
+        {
+            question: "Which language runs in a web browser?",
+            options: ["Java", "C", "Python", "JavaScript"],
+            correct: 3
+        },
+        {
+            question: "What does CSS stand for?",
+            options: [
+                "Central Style Sheets",
+                "Cascading Style Sheets",
+                "Computer Style System",
+                "Creative Style Syntax"
+            ],
+            correct: 1
+        },
+        {
+            question: "Which HTML tag is used for JavaScript?",
+            options: ["<js>", "<script>", "<javascript>", "<code>"],
+            correct: 1
+        }
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let selectedAnswer = null;
+
+    const questionEl = document.getElementById("question");
+    const optionsEl = document.getElementById("options");
+    const nextBtn = document.getElementById("nextBtn");
+
+    // Load first question
+    loadQuestion();
+
+    function loadQuestion() {
+        selectedAnswer = null;
+        optionsEl.innerHTML = "";
+
+        let currentQuestion = quizData[currentQuestionIndex];
+        questionEl.textContent = currentQuestion.question;
+
+        currentQuestion.options.forEach((option, index) => {
+            let button = document.createElement("button");
+            button.textContent = option;
+            button.classList.add("option-btn");
+
+            button.onclick = function() {
+
+                // Remove highlight from all options
+                let allOptions = document.querySelectorAll(".option-btn");
+                allOptions.forEach(btn => btn.classList.remove("active"));
+
+                // Highlight selected option
+                button.classList.add("active");
+
+                selectedAnswer = index;
+            };
+
+            optionsEl.appendChild(button);
+        });
+    }
+
+    function nextQuestion() {
+
+        if (selectedAnswer === null) {
+            alert("Please select an answer!");
+            return;
+        }
+
+        // Check answer
+        if (selectedAnswer === quizData[currentQuestionIndex].correct) {
+            score++;
+        }
+
+        currentQuestionIndex++;
+
+        if (currentQuestionIndex < quizData.length) {
+            loadQuestion();
+        } else {
+            showResult();
+        }
+    }
+
+    function showResult() {
+        questionEl.textContent = "Quiz Completed!";
+        optionsEl.innerHTML = "";
+        nextBtn.style.display = "none";
+
+        let result = document.createElement("h3");
+        result.textContent = "Your Score: " + score + " / " + quizData.length;
+        optionsEl.appendChild(result);
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Character Limit (200)</h2>
+<textarea id="text" maxlength="200" oninput="check()" rows="5" cols="40"></textarea>
+<p id="count">200 characters remaining</p>
+
+<script>
+function check(){
+    let max = 200;
+    let len = text.value.length;
+    count.textContent = (max-len) + " characters remaining";
+}
+</script>
+
+</body>
+</html>

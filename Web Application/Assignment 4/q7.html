@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Session with LocalStorage</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 80px;
+            background: #f4f4f4;
+        }
+
+        .container {
+            background: white;
+            width: 300px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        input {
+            padding: 8px;
+            width: 90%;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div id="loginSection">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Enter Username">
+        <br>
+        <button onclick="login()">Login</button>
+    </div>
+
+    <div id="welcomeSection" style="display:none;">
+        <h2 id="welcomeMessage"></h2>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+</div>
+
+<script>
+
+    // Check if user already logged in (after refresh)
+    window.onload = function() {
+        let savedUser = localStorage.getItem("username");
+
+        if (savedUser) {
+            showWelcome(savedUser);
+        }
+    };
+
+    function login() {
+        let username = document.getElementById("username").value.trim();
+
+        if (username === "") {
+            alert("Please enter username");
+            return;
+        }
+
+        // Save username in localStorage
+        localStorage.setItem("username", username);
+
+        showWelcome(username);
+    }
+
+    function showWelcome(username) {
+        document.getElementById("loginSection").style.display = "none";
+        document.getElementById("welcomeSection").style.display = "block";
+        document.getElementById("welcomeMessage").innerText = 
+            "Welcome back, " + username + "!";
+    }
+
+    function logout() {
+        // Remove username from localStorage
+        localStorage.removeItem("username");
+
+        document.getElementById("loginSection").style.display = "block";
+        document.getElementById("welcomeSection").style.display = "none";
+        document.getElementById("username").value = "";
+    }
+
+</script>
+
+</body>
+</html>

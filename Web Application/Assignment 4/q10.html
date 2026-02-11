@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student List with Search</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 70%;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        input {
+            padding: 6px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Student List</h2>
+
+<input type="text" id="searchInput" placeholder="Search by name..." onkeyup="searchStudent()">
+
+<table id="studentTable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Course</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script>
+    // Hardcoded JSON data (works without fetch for local testing)
+    let studentsData = [
+        { "id": 1, "name": "Rahul Sharma", "age": 20, "course": "BCA" },
+        { "id": 2, "name": "Priya Verma", "age": 22, "course": "BBA" },
+        { "id": 3, "name": "Amit Kumar", "age": 21, "course": "BTech" },
+        { "id": 4, "name": "Sneha Patel", "age": 23, "course": "MCA" },
+        { "id": 5, "name": "Arjun Singh", "age": 24, "course": "MBA" }
+    ];
+
+    // Display table initially
+    displayStudents(studentsData);
+
+    function displayStudents(data) {
+        let tableBody = document.querySelector("#studentTable tbody");
+        tableBody.innerHTML = "";
+
+        data.forEach(student => {
+            let row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${student.id}</td>
+                <td>${student.name}</td>
+                <td>${student.age}</td>
+                <td>${student.course}</td>
+            `;
+            tableBody.appendChild(row);
+        });
+    }
+
+    function searchStudent() {
+        let searchValue = document.getElementById("searchInput").value.toLowerCase();
+        let filteredData = studentsData.filter(student =>
+            student.name.toLowerCase().includes(searchValue)
+        );
+        displayStudents(filteredData);
+    }
+</script>
+
+</body>
+</html>
